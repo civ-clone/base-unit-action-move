@@ -11,17 +11,17 @@ class Move extends Action_1.Action {
             return false;
         }
         this.unit().setTile(this.to());
-        this.ruleRegistry().process(Moved_1.Moved, this.unit(), this);
+        this.ruleRegistry().process(Moved_1.default, this.unit(), this);
         return true;
     }
     movementCost() {
-        const [moveCost,] = this.ruleRegistry()
-            .process(MovementCost_1.MovementCost, this.unit(), this)
+        const [moveCost] = this.ruleRegistry()
+            .process(MovementCost_1.default, this.unit(), this)
             .sort((a, b) => a - b);
         return moveCost;
     }
     validate() {
-        const [valid,] = this.ruleRegistry().process(ValidateMove_1.ValidateMove, this.unit(), this.movementCost());
+        const [valid] = this.ruleRegistry().process(ValidateMove_1.default, this.unit(), this.movementCost());
         return valid;
     }
 }

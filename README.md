@@ -1,4 +1,3 @@
 # base-unit-action-move
 
-This is a template repo.
-
+This package provides the `Move` `Action` for `Unit`s.
